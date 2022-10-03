@@ -35,6 +35,7 @@ void handle_bad_irq(struct irq_desc *desc)
 	print_irq_desc(irq, desc);
 	kstat_incr_irqs_this_cpu(desc);
 	ack_bad_irq(irq);
+	panic("Bad IRQ %d,please fix !!!\n"),irq;
 }
 EXPORT_SYMBOL_GPL(handle_bad_irq);
 
