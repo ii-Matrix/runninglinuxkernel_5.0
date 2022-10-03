@@ -253,6 +253,9 @@ void __sched mutex_lock(struct mutex *lock)
 {
 	might_sleep();
 
+	if(__mutex_owner(lock) == current)
+		panic("Mutex AA deadlock detected,please fix !!!\n");
+
 	if (!__mutex_trylock_fast(lock))
 		__mutex_lock_slowpath(lock);
 }

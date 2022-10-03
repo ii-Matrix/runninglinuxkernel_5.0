@@ -5590,8 +5590,10 @@ static void wq_watchdog_timer_fn(struct timer_list *unused)
 
 	rcu_read_unlock();
 
-	if (lockup_detected)
+	if (lockup_detected) {
 		show_workqueue_state();
+		panic("workqueue lockup!!!\n");
+	}
 
 	wq_watchdog_reset_touched();
 	mod_timer(&wq_watchdog_timer, jiffies + thresh);

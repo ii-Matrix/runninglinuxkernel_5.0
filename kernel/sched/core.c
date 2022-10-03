@@ -6159,6 +6159,7 @@ void ___might_sleep(const char *file, int line, int preempt_offset)
 		pr_cont("\n");
 	}
 	dump_stack();
+	panic("Sleeping from invalid context,please fix !!!\n");
 	add_taint(TAINT_WARN, LOCKDEP_STILL_OK);
 }
 EXPORT_SYMBOL(___might_sleep);
