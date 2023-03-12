@@ -1,0 +1,44 @@
+{
+		"files.associations": {
+			"init.h": "c"
+		},
+	
+		"search.exclude": {
+			"**/.git"           :true,
+			"**/.gitee"         :true,
+			"Documentation/"    :true,
+			".cache/"           :true,
+			"**/.clang-format*"    :true,
+			"**/.cppcheck-ignore"  :true,
+			"**/LICENSE"        :true,
+			"**/vmlinux"			:true,
+			"**/*.o"				:true,
+			"**/*.a"				:true,
+ 			"**/*.tmp"				:true,
+ 			"**/*.cmd"				:true,
+			"**/*.order"			:true,
+ 			"**/*.builtin"			:true,
+ 			"**/*.o.d"				:true
+		},
+	
+		"files.exclude": {
+			"**/.git"           :true,
+			"**/.gitee"         :true,
+			"Documentation/"    :true,
+			".cache/"           :true,
+			"**/.clang-format*"    :true,
+			"**/.cppcheck-ignore"  :true,
+			"**/LICENSE"        :true,
+			"**/vmlinux*"			:true,
+			"**/*.o"				:true,
+			"**/*.a"				:true,
+ 			"**/*.tmp"				:true,
+ 			"**/*.cmd"				:true,
+			"**/*.order"			:true,
+ 			"**/*.builtin"			:true,
+ 			"**/*.o.d"				:true,
+			"_install_*/"			:true,
+		}
+	
+	
+}
