@@ -21,7 +21,7 @@ rootfs_arg="root=/dev/vda rootfstype=ext4 rw"
 kernel_arg="noinitrd nokaslr"
 crash_arg="crashkernel=256M"
 dyn_arg="vfio.dyndbg=+pflmt irq_gic_v3_its.dyndbg=+pflmt iommu.dyndbg=+pflmt irqdomain.dyndbg=+pflmt"
-debug_arg="loglevel=8 sched_debug"
+debug_arg="loglevel=8 sched_debug console=ttyAMA0"
 
 if [ $# -lt 1 ]; then
 	echo "Usage: $0 [arg]"
@@ -139,7 +139,7 @@ build_rootfs(){
 }
 
 run_qemu_debian(){
-		cmd="$QEMU -m 1024 -cpu max,sve=on,sve256=on -M virt,gic-version=3,its=on,iommu=smmuv3\
+		cmd="$QEMU -m 1024 -cpu cortex-a72 -M virt,gic-version=3,its=on,iommu=smmuv3\
 			-nographic $SMP -kernel arch/arm64/boot/Image \
 			-append \"$kernel_arg $debug_arg $rootfs_arg $crash_arg $dyn_arg\"\
 			-drive if=none,file=$rootfs_image,id=hd0\
